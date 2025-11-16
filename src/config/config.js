@@ -3,10 +3,10 @@ const config = {
     env: process.env.ENV,
     port: 3000,
     db: {
-        dbUrl: 'mongodb://127.0.0.1:27017',
-        dbName: 'diploma',
-        dbHost: 'localhost',
-        dbPort: 27017,
+        dbUrl: process.env.DB_URL || 'mongodb://127.0.0.1:27017',
+        dbName: process.env.DB_NAME || 'diploma',
+        dbHost: process.env.DB_HOST || 'localhost',
+        dbPort: process.env.DB_PORT || 27017,
     },
     userCommentActions: {
         like: 'like',
