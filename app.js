@@ -23,7 +23,12 @@ MongoDBConnection.getConnection((error, connection) => {
 
     app.use(express.static(path.join(__dirname, 'public')));
     app.use(express.json());
-    app.use(cors());
+    const corsOptions = {
+        origin: 'https://esukhova.github.io',
+        optionsSuccessStatus: 200
+    };
+
+    app.use(cors(corsOptions));
 
     passport.use(new JwtStrategy({
         jwtFromRequest: ExtractJwt.fromHeader('x-auth'),
